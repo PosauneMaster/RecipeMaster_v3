@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlWorks.RecipeMaster", "ControlWorks.RecipeMaster.csproj", "{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WH1Utils", "..\WH.Utils\WH1Utils.csproj", "{FC46908C-96E3-4FD6-8F84-F4DFC6AF08A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlWorks.RecipeMaster.Tests", "..\ControlWorks.RecipeMaster.Tests\ControlWorks.RecipeMaster.Tests.csproj", "{02A4DBF1-E72A-41A7-AE09-118696B4ED00}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RecipeMaster", "..\RecipeMasterSetup\RecipeMasterSetup.vdproj", "{68A00EA6-E137-49FB-9CB9-0D582F143240}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC46908C-96E3-4FD6-8F84-F4DFC6AF08A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC46908C-96E3-4FD6-8F84-F4DFC6AF08A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC46908C-96E3-4FD6-8F84-F4DFC6AF08A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC46908C-96E3-4FD6-8F84-F4DFC6AF08A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A4DBF1-E72A-41A7-AE09-118696B4ED00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A4DBF1-E72A-41A7-AE09-118696B4ED00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A4DBF1-E72A-41A7-AE09-118696B4ED00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A4DBF1-E72A-41A7-AE09-118696B4ED00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A00EA6-E137-49FB-9CB9-0D582F143240}.Debug|Any CPU.ActiveCfg = Debug
+		{68A00EA6-E137-49FB-9CB9-0D582F143240}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
