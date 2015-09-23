@@ -1,22 +1,15 @@
-﻿using System;
+﻿using BR.AN.PviServices;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.Xml.Serialization;
-using System.IO;
-using System.Linq;
-using WH.Utils.Logging;
 using System.Collections.ObjectModel;
-using BR.AN.PviServices;
-using System.Globalization;
-using System.Windows.Forms;
-using RecipeMaster.Services;
-using System.Configuration;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
-    [Serializable()]
+    [Serializable]
     public class Machine : INotifyPropertyChanged
     {
         private string m_MachineName;
@@ -168,23 +161,11 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("OpenTemplate", ex);
             }
         }
 
         VariableCollections m_VariableCollections;
-        //public void GetExcelData(string fileName, string templateName)
-        //{
-        //    try
-        //    {
-        //        RecipeData.MapDataFromExcel(fileName, m_VariableCollections.SendCollection);
-
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        Log.Write(LogLevel.ERROR, ex);
-        //    }
-        //}
 
         public void GetExcelData(string fileName)
         {
@@ -195,7 +176,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("GetExcelData", ex);
             }
         }
 
@@ -229,7 +210,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
             return v;
         }
@@ -283,7 +264,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -325,7 +306,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -362,7 +343,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -392,7 +373,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
             return;
         }
@@ -420,7 +401,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -442,11 +423,11 @@ namespace BendSheets
                     sb.AppendLine("Exception:");
                     sb.AppendLine(e.ToString());
                 }
-                Log.Write(sb.ToString());
+                Log.LogError(sb.ToString());
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -460,7 +441,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -506,7 +487,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -566,7 +547,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("", ex);
             }
         }
 

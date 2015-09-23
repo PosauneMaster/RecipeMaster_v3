@@ -1,6 +1,6 @@
-﻿namespace BendSheets
+﻿namespace ControlWorks.RecipeMaster
 {
-    partial class BendSheet
+    partial class frmMachines
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.bendSheetstoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.machineStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -78,18 +78,18 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bendSheetstoolStripMenuItem,
+            this.machineStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(149, 54);
             // 
-            // bendSheetstoolStripMenuItem
+            // machineStripMenuItem
             // 
-            this.bendSheetstoolStripMenuItem.Name = "bendSheetstoolStripMenuItem";
-            this.bendSheetstoolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.bendSheetstoolStripMenuItem.Text = "Recipe Master";
-            this.bendSheetstoolStripMenuItem.Click += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            this.machineStripMenuItem.Name = "machineStripMenuItem";
+            this.machineStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.machineStripMenuItem.Text = "Recipe Master";
+            this.machineStripMenuItem.Click += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
             // toolStripSeparator1
             // 
@@ -192,7 +192,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BendSheets.Properties.Resources.color_02inSCREEN;
+            this.pictureBox1.Image = global::ControlWorks.RecipeMaster.Properties.Resources.color_02inSCREEN;
             this.pictureBox1.Location = new System.Drawing.Point(12, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(516, 41);
@@ -254,7 +254,7 @@
             this.colFileName.Name = "colFileName";
             this.colFileName.ReadOnly = true;
             // 
-            // BendSheet
+            // frmMachines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -267,13 +267,13 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "BendSheet";
+            this.Name = "frmMachines";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = global::BendSheets.Properties.Settings.Default.MainFormTitle;
-            this.Load += new System.EventHandler(this.BendSheet_Load);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BendSheet_FormClosing);
-            this.Resize += new System.EventHandler(this.BendSheet_Resize);
+            this.Text = global::ControlWorks.RecipeMaster.Properties.Settings.Default.MainFormTitle;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMachines_FormClosing);
+            this.Load += new System.EventHandler(this.frmMachines_Load);
+            this.Resize += new System.EventHandler(this.frmMachines_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
@@ -295,7 +295,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem bendSheetstoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem machineStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;

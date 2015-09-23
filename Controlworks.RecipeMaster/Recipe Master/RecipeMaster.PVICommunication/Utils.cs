@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Globalization;
-using RecipeMaster.Services;
 
-namespace BendSheets.PVICommunication
+namespace ControlWorks.RecipeMaster
 {
     public static class Utils
     {

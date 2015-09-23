@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Configuration;
 
-namespace BendSheets.ConfigurationManagement
+namespace ControlWorks.RecipeMaster.ConfigurationManagement
 {
     public sealed class SecurityManager
     {

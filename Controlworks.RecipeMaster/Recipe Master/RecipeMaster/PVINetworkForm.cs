@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using BendSheets.PVICommunication;
-using BR.AN.PviServices;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class PVINetworkForm : Form
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     [Serializable]
     public class RecipeTemplateItem : IEquatable<RecipeTemplateItem>

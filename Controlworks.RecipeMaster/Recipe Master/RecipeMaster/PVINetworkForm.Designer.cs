@@ -1,4 +1,4 @@
-﻿namespace BendSheets
+﻿namespace ControlWorks.RecipeMaster
 {
     partial class PVINetworkForm
     {

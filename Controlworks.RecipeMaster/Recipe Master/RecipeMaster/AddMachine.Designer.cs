@@ -1,4 +1,4 @@
-﻿namespace BendSheets
+﻿namespace ControlWorks.RecipeMaster
 {
     partial class AddMachine
     {
@@ -107,7 +107,7 @@
             // nudDestination
             // 
             this.nudDestination.Location = new System.Drawing.Point(104, 141);
-            this.nudDestination.Maximum = global::BendSheets.Properties.Settings.Default.MaxValue;
+            this.nudDestination.Maximum = global::ControlWorks.RecipeMaster.Properties.Settings.Default.MaxValue;
             this.nudDestination.Name = "nudDestination";
             this.nudDestination.Size = new System.Drawing.Size(100, 20);
             this.nudDestination.TabIndex = 7;

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
-using System.Collections.ObjectModel;
-using System.Xml.Serialization;
 using System.IO;
-using WH.Utils.Logging;
+using System.Xml.Serialization;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     [Serializable()]
     public sealed class RecipeMasterSetting : INotifyPropertyChanged
@@ -159,7 +155,7 @@ namespace BendSheets
             }
             catch (Exception ex)
             {
-                Log.Write(ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -179,7 +175,7 @@ namespace BendSheets
                     catch (Exception ex)
                     {
                         recipeSettings = new RecipeSettings();
-                        Log.Write(ex);
+                        Log.LogError("LoadSettings", ex);
                     }
                 }
             }

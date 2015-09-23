@@ -1,4 +1,4 @@
-﻿namespace BendSheets
+﻿namespace ControlWorks.RecipeMaster
 {
     partial class StartUpForm
     {
@@ -39,7 +39,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::BendSheets.Properties.Resources.color_03inSCREEN;
+            this.pictureBox1.Image = global::ControlWorks.RecipeMaster.Properties.Resources.color_03inSCREEN;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(284, 125);

@@ -1,19 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Permissions;
-
-using RecipeMaster.Services;
-using BendSheets.ConfigurationManagement;
-
-using WH.ComUtils.ExcelManager;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
+using System.IO;
 using System.Text.RegularExpressions;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public class RecipeData 
     {

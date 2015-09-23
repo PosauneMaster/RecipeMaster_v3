@@ -8,7 +8,7 @@ using System.Reflection;
 using System.IO;
 using System.Collections.Generic;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public sealed class SingleApplication
     {

@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Reflection;
 using System.Configuration;
-using WH.Utils.Logging;
+using System.Reflection;
+using System.Windows.Forms;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class AboutForm : Form
     {
@@ -43,7 +37,7 @@ namespace BendSheets
             }
             catch (Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("linkLabel1_LinkClicked",ex);
             }
         }
     }

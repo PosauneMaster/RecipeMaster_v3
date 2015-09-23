@@ -5,7 +5,7 @@ using BR.AN.PviServices;
 using System.Reflection;
 using System.IO;
 
-namespace BendSheets.PVICommunication
+namespace ControlWorks.RecipeMaster
 {
     public sealed class PviService : IDisposable
     {
@@ -102,8 +102,7 @@ namespace BendSheets.PVICommunication
 
         public void ConnectPVIService()
         {
-            string assembleyPath = Assembly.GetExecutingAssembly().Location;
-            FileSystemInfo fileInfo = new FileInfo(assembleyPath);
+            Log.LogInfo("Connecting PVI Service");
 
             m_Service = new Service("Service");
             m_Service.Connected += new PviEventHandler(m_Service_Connected);
@@ -116,6 +115,7 @@ namespace BendSheets.PVICommunication
         {
             if (mock)
             {
+                Log.LogInfo("Mock Service is true. Connecting Mock");
                 m_Service = new Service("Test Service");
                 OnServiceConnected(m_Service, new PviEventArgs(String.Empty, String.Empty, 0, String.Empty, BR.AN.PviServices.Action.ErrorEvent));
                 return;
@@ -127,6 +127,8 @@ namespace BendSheets.PVICommunication
         {
             lock (m_EventLock)
             {
+                LogPviEvent.LogError("Pvi Service Error", e);
+
                 if (e.ErrorCode != 0)
                 {
                     OnServiceError(sender, e);
@@ -153,6 +155,8 @@ namespace BendSheets.PVICommunication
         {
             lock (m_EventLock)
             {
+                LogPviEvent.LogInfo("Pvi Service Disconnected", e);
+
                 OnServiceDisconnected(sender, e);
             }
         }
@@ -176,6 +180,8 @@ namespace BendSheets.PVICommunication
         {
             lock (m_EventLock)
             {
+                LogPviEvent.LogInfo("Pvi Service Connected", e);
+
                 OnServiceConnected(sender, e);
             }
         }

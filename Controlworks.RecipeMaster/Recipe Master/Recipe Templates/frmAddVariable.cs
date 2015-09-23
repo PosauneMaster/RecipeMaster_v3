@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class frmAddVariable : Form
     {

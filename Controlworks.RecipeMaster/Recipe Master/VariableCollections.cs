@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public class VariableCollections
     {

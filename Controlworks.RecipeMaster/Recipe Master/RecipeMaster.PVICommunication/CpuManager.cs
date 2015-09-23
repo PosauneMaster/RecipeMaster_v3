@@ -1,16 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading;
-using System.Globalization;
-using RecipeMaster.Services;
 using BR.AN.PviServices;
-using BendSheets.ConfigurationManagement;
+using System;
 using System.Configuration;
-using WH.Utils.Logging;
 
-namespace BendSheets.PVICommunication
+namespace ControlWorks.RecipeMaster
 {
     public sealed class CpuManager : IDisposable
     {
@@ -99,16 +91,13 @@ namespace BendSheets.PVICommunication
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+
+                Log.LogError("CpuManager.ConnectCpu", ex);
             }
         }
 
         public void DisconnectCpu(Cpu cpu)
         {
-            //if (BendSheetSettings.MockCpuConnection)
-            //{
-            //    //OnCpuDisconnected(cpu, new PviEventArgs(cpu.Name, cpu.Address, 0, "en-US", BR.AN.PviServices.Action.CpuDisconnect));
-            //}
         }
 
         private void cpu_Connected(object sender, PviEventArgs e)
@@ -204,7 +193,6 @@ namespace BendSheets.PVICommunication
         {
             lock (m_EventLock)
             {
-                //OnMockCpuError(sender, e);
                 OnMockCpuConnected(sender, e);
             }
         }

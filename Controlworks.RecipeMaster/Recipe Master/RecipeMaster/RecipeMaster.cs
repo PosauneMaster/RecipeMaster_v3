@@ -1,27 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using BR.AN.PviServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Security.Permissions;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using BendSheets.ConfigurationManagement;
-using RecipeMaster.DataMapping;
-using BendSheets.Properties;
-using BendSheets.PVICommunication;
-using RecipeMaster.Services;
-using WH.ComUtils.ExcelManager;
-using WH.Utils.Logging;
-using BR.AN.PviServices;
-using System.Reflection;
 
 [assembly: SecurityPermission(SecurityAction.RequestMinimum)]
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
-    public partial class BendSheet : Form
+    public partial class frmMachines : Form
     {
         #region Private Variables
         private readonly string settingsFile = @"Templates\MachineSettings.xml";
@@ -36,15 +26,15 @@ namespace BendSheets
         #endregion
 
         #region Constructor
-        public BendSheet()
+        public frmMachines()
         {
             InitializeComponent();
-            this.Disposed += new EventHandler(BendSheet_Disposed);
+            this.Disposed += new EventHandler(frmMachines_Disposed);
         }
         #endregion
 
         #region Load Methods
-        private void BendSheet_Load(object sender, EventArgs e)
+        private void frmMachines_Load(object sender, EventArgs e)
         {
             m_CpuManager = new CpuManager();
 
@@ -96,7 +86,6 @@ namespace BendSheets
         private void CreateActiveMachineList()
         {
             LoadSettings();
-            //m_MachineCollection = MachineCollection.LoadSettings(Path.Combine(Directory.GetCurrentDirectory(), settingsFile));
             m_MachineCollection.MachinePropertyChanged += new EventHandler<PropertyChangedEventArgs>(m_MachineCollection_MachinePropertyChanged);
             m_ActiveMachineList = new BindingList<Machine>();
             foreach (Machine machine in m_MachineCollection.MachineList)
@@ -110,29 +99,12 @@ namespace BendSheets
 
         private void LoadSettings()
         {
-            try
-            {
-                Log.Write(LogLevel.DEBUG, "Loading user preferences from " + SettingsPath());
-                m_MachineCollection = MachineCollection.LoadSettings(SettingsPath());
-            }
-            catch (System.Exception ex)
-            {
-                Log.Write(ex);
-            }
-
+            m_MachineCollection = MachineCollection.LoadSettings(SettingsPath());
         }
 
         private void SaveSettings()
         {
-            try
-            {
-                Log.Write(LogLevel.DEBUG, "Saving user preferences to " + SettingsPath());
-                m_MachineCollection.Save(SettingsPath());
-            }
-            catch (System.Exception ex)
-            {
-                Log.Write(ex);
-            }
+            m_MachineCollection.Save(SettingsPath());
         }
 
         private string SettingsPath()
@@ -192,19 +164,18 @@ namespace BendSheets
 
         private void service_ServiceError(object sender, PviEventArgs e)
         {
+            string message = String.Format("service_ServiceError; Action={0}, Address={1}, Error Code={2}, Error Text={3}, Name={4} ",
+                e.Action, e.Address, e.ErrorCode, e.ErrorText, e.Name);
+            Log.LogError(message);
             string text = "PVI network error -- connection closed";
             string caption = "PVI Error";
             MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Log.Write(LogLevel.FATAL, e.ToString());
         }
 
         private bool m_ShouldClose;
         private void Exit()
         {
             m_ShouldClose = true;
-
-            //m_MachineCollection = MachineCollection.LoadSettings(Path.Combine(Directory.GetCurrentDirectory(), settingsFile));
-
 
             PviService service = PviService.PviServiceInstance;
             service.DisconnectPVIService();
@@ -215,7 +186,7 @@ namespace BendSheets
         #endregion
 
         #region Event Handlers
-        private void BendSheet_Disposed(object sender, EventArgs e)
+        private void frmMachines_Disposed(object sender, EventArgs e)
         {
             this.notifyIcon1.Dispose();
         }
@@ -228,30 +199,13 @@ namespace BendSheets
             this.TopMost = false;
         }
 
-        private void BendSheet_Resize(object sender, EventArgs e)
+        private void frmMachines_Resize(object sender, EventArgs e)
         {
             this.ShowInTaskbar = !(this.WindowState == FormWindowState.Minimized);
         }
 
         #endregion
 
-        private void HandleException(System.Exception ex)
-        {
-            string message = String.Concat("An error opening the selected file has occurred.\n\n", ex.Message);
-            MessageBox.Show(message, "Error Processing File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            ex.Data.Add("fileName", "");
-
-            LogException(ex);
-        }
-
-        private static void LogException(System.Exception ex)
-        {
-            Thread t = new Thread(new ParameterizedThreadStart(Log.Write));
-            t.Start(ex);
-            t.Join();
-
-        }
         private void SetStatusText()
         {
             if (!ExcelEngine.ExcelInstalled())
@@ -315,7 +269,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(ex);
+                Log.LogError("", ex);
             }
         }
 
@@ -343,7 +297,7 @@ namespace BendSheets
             }
         }
 
-        private void BendSheet_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmMachines_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
         }

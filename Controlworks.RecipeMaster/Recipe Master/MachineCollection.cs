@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
-using System.Xml.Serialization;
 using System.IO;
-using WH.Utils.Logging;
+using System.Xml.Serialization;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     [Serializable()]
     public sealed class MachineCollection
@@ -40,7 +36,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("MachineCollection.Save", ex);
             }
         }
 
@@ -61,7 +57,7 @@ namespace BendSheets
                     catch (System.Exception ex)
                     {
                         machineCollection = new MachineCollection();
-                        Log.Write(LogLevel.ERROR, ex);
+                        Log.LogError("", ex);
                     }
                 }
             }

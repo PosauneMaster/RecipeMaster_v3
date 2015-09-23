@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using WH.Utils.Logging;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class frmVariables : Form
     {
@@ -39,7 +32,7 @@ namespace BendSheets
             }
             catch (Exception ex)
             {
-                Log.Write(ex);
+                Log.LogError("frmVariables.frmVariables_Load", ex);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     [Serializable]
     public class RecipeVariable

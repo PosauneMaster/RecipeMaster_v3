@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public enum ButtonAction
     {

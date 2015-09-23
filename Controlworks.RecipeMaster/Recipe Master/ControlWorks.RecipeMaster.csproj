@@ -8,10 +8,10 @@
     <ProjectGuid>{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BendSheets</RootNamespace>
+    <RootNamespace>ControlWorks.RecipeMaster</RootNamespace>
     <AssemblyName>Recipe Master</AssemblyName>
     <ApplicationIcon>Resources\Carburetor.ico</ApplicationIcon>
-    <StartupObject>BendSheets.Program</StartupObject>
+    <StartupObject>ControlWorks.RecipeMaster.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -58,6 +58,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\BR.AN.PVIServices.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.3\lib\net35-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -71,12 +75,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcelServices\ApplicationEngine.cs" />
+    <Compile Include="ExcelServices\ExcelEngine.cs" />
+    <Compile Include="ExcelServices\ExcelUtils.cs" />
+    <Compile Include="ExcelServices\IExcelEngine.cs" />
+    <Compile Include="ExcelServices\NativeMethods.cs" />
     <Compile Include="frmVariables.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVariables.Designer.cs">
       <DependentUpon>frmVariables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs" />
+    <Compile Include="LogPviEvent.cs" />
     <Compile Include="MachineCollection.cs" />
     <Compile Include="Recipe Templates\frmAddVariable.cs">
       <SubType>Form</SubType>
@@ -120,7 +131,7 @@
       <DependentUpon>frmCreateTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipeMaster\Machine.cs" />
-    <Compile Include="RecipeMaster\NativeMethods.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="RecipeMaster\RecipeMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +157,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -245,12 +257,7 @@
     <None Include="Resources\Main_New_r6_c1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WH.Utils\WH1Utils.csproj">
-      <Project>{FC46908C-96E3-4FD6-8F84-F4DFC6AF08A7}</Project>
-      <Name>WH1Utils</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="Logging\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
@@ -279,7 +286,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>mkdir "$(TargetDir)Templates\"
+xcopy /Y "$(SolutionDir)\Controlworks.RecipeMaster\Templates" "$(TargetDir)Templates\*.*"</PostBuildEvent>
   </PropertyGroup>
 </Project>

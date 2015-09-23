@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using WH.Utils.Logging;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     static class Program
     {
@@ -15,7 +13,7 @@ namespace BendSheets
         {
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
-            Log.Write("Application Startup");
+            Log.LogInfo("RecipeMaster Start");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             using (StartUpForm startForm = new StartUpForm())
@@ -25,26 +23,26 @@ namespace BendSheets
 
             try
             {
-                SingleApplication.Run(new BendSheet());
+                SingleApplication.Run(new frmMachines());
             }
             catch (Exception ex)
             {
-                Log.Write("Error on exit");
-                Log.Write(ex.ToString());
+                Log.LogError("Main", ex);
                 Application.Exit();
             }
         }
 
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
-            Log.Write(LogLevel.FATAL, e.Exception);
+            Log.LogError("Application_ThreadException", e.Exception);
             MessageBox.Show("A fatal error has occurred and the application must shut down", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Application.Exit();
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            Log.Write(LogLevel.FATAL, e.ExceptionObject);
+            Log.LogError("CurrentDomain_UnhandledException");
+            Log.LogError(e.ExceptionObject.ToString());
             MessageBox.Show("A fatal error has occurred and the application must shut down", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Application.Exit();
         }

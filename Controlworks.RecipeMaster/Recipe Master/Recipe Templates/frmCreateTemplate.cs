@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Configuration;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class frmCreateTemplate : Form
     {

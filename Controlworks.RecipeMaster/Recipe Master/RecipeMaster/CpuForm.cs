@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using BendSheets.PVICommunication;
-using BR.AN.PviServices;
-using RecipeMaster.Services;
+﻿using BR.AN.PviServices;
+using System;
 using System.IO;
-using WH.Utils.Logging;
-using WH.ComUtils.ExcelManager;
+using System.Windows.Forms;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class CpuForm : Form
     {
@@ -144,7 +135,7 @@ namespace BendSheets
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("btnConnect_Click", ex);
             }
         }
 
@@ -185,7 +176,7 @@ namespace BendSheets
                     }
                     catch (System.Exception ex)
                     {
-                        Log.Write(ex);
+                        Log.LogError("", ex);
                     }
                 }
                 this.rtbFileName.Text = openFileDialog1.SafeFileName;

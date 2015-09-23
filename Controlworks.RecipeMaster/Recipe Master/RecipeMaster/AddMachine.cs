@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class AddMachine : Form
     {

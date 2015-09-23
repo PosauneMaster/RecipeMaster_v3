@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using BendSheets.ConfigurationManagement;
-using System.Xml.Serialization;
 using System.IO;
-using WH.Utils.Logging;
-using BendSheets.PVICommunication;
+using System.Windows.Forms;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     public partial class SettingsForm : Form
     {
@@ -125,7 +116,7 @@ namespace BendSheets
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Write(ex);
+                Log.LogError("EditMachine", ex);
             }
         }
 
@@ -146,7 +137,7 @@ namespace BendSheets
             catch (Exception ex)
             {
                 MessageBox.Show("Error removing settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Write(ex);
+                Log.LogError("", ex);
             }
         }
 

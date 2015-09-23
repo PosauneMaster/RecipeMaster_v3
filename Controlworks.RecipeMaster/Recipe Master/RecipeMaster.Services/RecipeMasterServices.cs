@@ -1,22 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Collections.Specialized;
+using System.Configuration;
+using System.Globalization;
+using System.IO;
+using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.IO.Compression;
-using System.Collections.Specialized;
-using System.Globalization;
-
-
-using System.Security.Permissions;
-using System.Configuration;
-using WH.Utils.Logging;
 
 [assembly: SecurityPermission(SecurityAction.RequestMinimum)]
 
-namespace RecipeMaster.Services
+namespace ControlWorks.RecipeMaster
 {
     public sealed class RecipeMasterServices
     {
@@ -112,7 +105,7 @@ namespace RecipeMaster.Services
             }
             catch (System.Exception ex)
             {
-                Log.Write(LogLevel.ERROR, ex);
+                Log.LogError("WriteNewProductionFile", ex);
             }
             return fileName;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace BendSheets
+namespace ControlWorks.RecipeMaster
 {
     internal static class NativeMethods
     {
@@ -19,5 +19,13 @@ namespace BendSheets
         internal static extern int IsIconic(IntPtr hWnd);
         #endregion
 
+        [System.Runtime.InteropServices.DllImport("Kernel32")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private extern static Boolean CloseHandle(IntPtr handle);
+
+        public static bool CloseCOMHandle(IntPtr handle)
+        {
+            return CloseHandle((IntPtr)handle);
+        }
     }
 }
