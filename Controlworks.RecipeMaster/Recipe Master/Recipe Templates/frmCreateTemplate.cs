@@ -18,8 +18,8 @@ namespace ControlWorks.RecipeMaster
         private void frmCreateTemplate_Load(object sender, EventArgs e)
         {
 
-            this.txtSendVariable.Text = ConfigurationManager.AppSettings["SendVariablePrefix"].ToString();
-            this.txtReceiveVariable.Text =  ConfigurationManager.AppSettings["ReceiveVariablePrefix"].ToString();
+            this.txtSendVariable.Text = RecipeMasterConfiguration.SendVariablePrefix;
+            this.txtReceiveVariable.Text = RecipeMasterConfiguration.ReceiveVariablePrefix;
 
             try
             {

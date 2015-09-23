@@ -42,17 +42,9 @@ namespace ControlWorks.RecipeMaster
 
         private static Stream XmlSetup()
         {
-            _logLevel = "DEBUG";
-            if (ConfigurationManager.AppSettings["LogLevel"] != null)
-            {
-                _logLevel = ConfigurationManager.AppSettings["LogLevel"];
-            }
+            _logLevel = RecipeMasterConfiguration.LogLevel ?? "DEBUG";
 
-            string logFilename = @"Logs\RecipeMaster.log";
-            if (ConfigurationManager.AppSettings["LogFile"] != null)
-            {
-                logFilename = ConfigurationManager.AppSettings["LogFile"];
-            }
+            string logFilename = RecipeMasterConfiguration.LogFile ?? @"Logs\RecipeMaster.log";
 
             string x = String.Format(@"<log4net>
                 <appender name=""RollingFileAppender"" type=""log4net.Appender.RollingFileAppender"">

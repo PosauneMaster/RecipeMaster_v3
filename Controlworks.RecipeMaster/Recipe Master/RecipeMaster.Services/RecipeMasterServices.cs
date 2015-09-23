@@ -98,8 +98,7 @@ namespace ControlWorks.RecipeMaster
             {
                 lock (_threadLock)
                 {
-                    string templateFile = ConfigurationManager.AppSettings["ProductionTemplateExcel"].ToString();
-                    string sourceFile = Path.Combine(Directory.GetCurrentDirectory() + @"\Templates", templateFile) + ".xlsx"; ;
+                    string sourceFile = Path.Combine(Directory.GetCurrentDirectory() + @"\Templates", RecipeMasterConfiguration.ProductionTemplateExcel) + ".xlsx"; ;
                     File.Copy(sourceFile, fileName, true);
                 }
             }

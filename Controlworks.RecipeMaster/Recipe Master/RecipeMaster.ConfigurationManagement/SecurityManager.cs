@@ -135,7 +135,7 @@ namespace ControlWorks.RecipeMaster.ConfigurationManagement
 
         public static string ManagerFilePath()
         {
-            return String.Concat(Application.StartupPath, ConfigurationManager.AppSettings["SecurityFileName"]);
+            return String.Concat(Application.StartupPath, RecipeMasterConfiguration.SecurityFileName);
         }
     }
 }

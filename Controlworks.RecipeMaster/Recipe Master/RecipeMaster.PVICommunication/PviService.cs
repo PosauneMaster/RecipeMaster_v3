@@ -10,45 +10,10 @@ namespace ControlWorks.RecipeMaster
     public sealed class PviService : IDisposable
     {
         private readonly object m_EventLock = new Object();
-        private EventHandler<PviEventArgs> m_ServiceConnected;
-        private EventHandler<PviEventArgs> m_ServiceDisconnected;
-        private EventHandler<PviEventArgs> m_ServiceError;
 
-        public event EventHandler<PviEventArgs> ServiceConnected
-        {
-            add
-            {
-                lock (m_EventLock) { m_ServiceConnected += value; }
-            }
-            remove
-            {
-                lock (m_EventLock) { m_ServiceConnected -= value; }
-            }
-        }
-
-        public event EventHandler<PviEventArgs> ServiceDisconnected
-        {
-            add
-            {
-                lock (m_EventLock) { m_ServiceDisconnected += value; }
-            }
-            remove
-            {
-                lock (m_EventLock) { m_ServiceDisconnected -= value; }
-            }
-        }
-
-        public event EventHandler<PviEventArgs> ServiceError
-        {
-            add
-            {
-                lock (m_EventLock) { m_ServiceError += value; }
-            }
-            remove
-            {
-                lock (m_EventLock) { m_ServiceError -= value; }
-            }
-        }
+        public event EventHandler<PviEventArgs> ServiceConnected;
+        public event EventHandler<PviEventArgs> ServiceDisconnected;
+        public event EventHandler<PviEventArgs> ServiceError;
 
         private PviEventArgs m_PVIEventArgs;
 
@@ -143,7 +108,7 @@ namespace ControlWorks.RecipeMaster
             {
                 UnregisterEvents(service);
                 service.Disconnect();
-                EventHandler<PviEventArgs> temp = this.m_ServiceError;
+                EventHandler<PviEventArgs> temp = this.ServiceError;
                 if (temp != null)
                 {
                     temp(sender, e);
@@ -168,7 +133,7 @@ namespace ControlWorks.RecipeMaster
             {
                 service.Dispose();
                 service = null;
-                EventHandler<PviEventArgs> temp = this.m_ServiceDisconnected;
+                EventHandler<PviEventArgs> temp = ServiceDisconnected;
                 if (temp != null)
                 {
                     temp(sender, e);
@@ -191,7 +156,7 @@ namespace ControlWorks.RecipeMaster
             Service service = sender as Service;
             if (service != null)
             {
-                EventHandler<PviEventArgs> temp = this.m_ServiceConnected;
+                EventHandler<PviEventArgs> temp = ServiceConnected;
                 if (temp != null)
                 {
                     temp(sender, e);

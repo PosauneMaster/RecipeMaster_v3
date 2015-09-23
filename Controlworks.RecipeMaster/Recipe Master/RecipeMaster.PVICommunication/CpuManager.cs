@@ -68,14 +68,8 @@ namespace ControlWorks.RecipeMaster
                 cpu.Connection.TcpIp.SourceStation = this.m_SourceStationId;
                 cpu.Connection.TcpIp.DestinationStation = (byte)destinationStation;
 
-                bool mockConnection;
 
-                if (!Boolean.TryParse(ConfigurationManager.AppSettings["mockCpuConnection"], out mockConnection))
-                {
-                    mockConnection = false;
-                }
-
-                if (mockConnection)
+                if (RecipeMasterConfiguration.MockCpuConnection)
                 {
                     cpu.Connected += new PviEventHandler(cpu_MockConnected);
                     cpu.Error += new PviEventHandler(cpu_MockError);

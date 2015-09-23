@@ -32,7 +32,7 @@ namespace ControlWorks.RecipeMaster
         {
             try
             {
-                string webSite = ConfigurationManager.AppSettings["ControlWorksWebsite"].ToString();
+                string webSite = RecipeMasterConfiguration.ControlWorksWebsite;
                 System.Diagnostics.Process.Start(webSite);
             }
             catch (Exception ex)

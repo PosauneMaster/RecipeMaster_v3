@@ -86,8 +86,8 @@
     <Compile Include="frmVariables.Designer.cs">
       <DependentUpon>frmVariables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Log.cs" />
-    <Compile Include="LogPviEvent.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\LogPviEvent.cs" />
     <Compile Include="MachineCollection.cs" />
     <Compile Include="Recipe Templates\frmAddVariable.cs">
       <SubType>Form</SubType>
@@ -105,6 +105,7 @@
     <Compile Include="RecipeMaster.PVICommunication\PviService.cs" />
     <Compile Include="RecipeMaster.PVICommunication\Utils.cs" />
     <Compile Include="RecipeMaster.Services\RecipeMasterServices.cs" />
+    <Compile Include="RecipeMasterConfiguration.cs" />
     <Compile Include="RecipeMaster\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,7 +258,6 @@
     <None Include="Resources\Main_New_r6_c1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Logging\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>

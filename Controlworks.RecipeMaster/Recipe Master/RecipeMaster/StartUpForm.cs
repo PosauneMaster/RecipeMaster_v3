@@ -61,14 +61,7 @@ namespace ControlWorks.RecipeMaster
             pviService.ServiceError += new EventHandler<PviEventArgs>(pviEngine_ServiceError);
             pviService.ServiceDisconnected += new EventHandler<PviEventArgs>(pviService_ServiceDisconnected);
 
-            bool mockConnection;
-
-            if (!Boolean.TryParse(ConfigurationManager.AppSettings["mockConnection"], out mockConnection))
-            {
-                mockConnection = false;
-            }
-
-            pviService.ConnectPVIService(mockConnection);
+            pviService.ConnectPVIService(RecipeMasterConfiguration.MockConnection);
         }
 
         private void pviService_ServiceDisconnected(object sender, PviEventArgs e)
