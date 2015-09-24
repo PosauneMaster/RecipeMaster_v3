@@ -32,7 +32,7 @@ namespace ControlWorks.RecipeMaster
                 XmlSerializer s = new XmlSerializer(typeof(MachineCollection));
                 TextWriter w = new StreamWriter(path);
                 s.Serialize(w, this);
-                w.Close();
+                w.Dispose();
             }
             catch (System.Exception ex)
             {
