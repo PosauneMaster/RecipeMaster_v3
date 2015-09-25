@@ -24,6 +24,12 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "ControlWorks.RecipeMaster.S
 		{F8C4470B-E28B-414E-B6E7-27C755D7DCD2} = {F8C4470B-E28B-414E-B6E7-27C755D7DCD2}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{30B18BA5-AF41-4AC8-9FF3-497998434289}"
+	ProjectSection(SolutionItems) = preProject
+		Controlworks.RecipeMaster\Samples\092-2530-001 BS_1.xls = Controlworks.RecipeMaster\Samples\092-2530-001 BS_1.xls
+		Controlworks.RecipeMaster\Samples\TSP G03 BS_1.xls = Controlworks.RecipeMaster\Samples\TSP G03 BS_1.xls
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -45,8 +51,8 @@ Global
 		{F8C4470B-E28B-414E-B6E7-27C755D7DCD2}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
 		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.CD_ROM|Any CPU.Build.0 = CD_ROM
-		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.Debug|Any CPU.ActiveCfg = DVD-5
-		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.Debug|Any CPU.Build.0 = DVD-5
+		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.Debug|Any CPU.ActiveCfg = SingleImage
+		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.Debug|Any CPU.Build.0 = SingleImage
 		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.DVD-5|Any CPU.ActiveCfg = DVD-5
 		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.DVD-5|Any CPU.Build.0 = DVD-5
 		{8C7595C7-DE7C-4FEE-8483-685380AFF39A}.Release|Any CPU.ActiveCfg = SingleImage

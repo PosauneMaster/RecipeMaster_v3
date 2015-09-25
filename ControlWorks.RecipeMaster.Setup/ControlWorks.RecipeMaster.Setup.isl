@@ -2375,6 +2375,7 @@
 		<col key="yes" def="s72">Property</col>
 		<col def="L255">Value</col>
 		<row><td>Express</td><td>MSIPackageFileName</td><td>RecipeMasterSetup</td></row>
+		<row><td>Express</td><td>SetupFileName</td><td>RecipeMasterSetup</td></row>
 	</table>
 
 	<table name="ISRelease">
@@ -3766,7 +3767,7 @@
 		<row><td>ID_STRING4</td><td>1033</td><td>RECIPE~1|Recipe Master</td><td>0</td><td/><td>-995935703</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td/><td>0</td><td/><td>-995927415</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>RECIPE~1|Recipe Master</td><td>0</td><td/><td>-995919223</td></row>
-		<row><td>ID_STRING7</td><td>1033</td><td>Uninstall</td><td>0</td><td/><td>-995923350</td></row>
+		<row><td>ID_STRING7</td><td>1033</td><td>RECIPE~1|Recipe Master Uninstall</td><td>0</td><td/><td>-995949397</td></row>
 		<row><td>ID_STRING8</td><td>1033</td><td>Uninstall</td><td>0</td><td/><td>-995904310</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-1130107184</td></row>
 	</table>
@@ -3998,8 +3999,8 @@
 		<col def="S0">Value</col>
 		<row><td>ActiveLanguage</td><td>1033</td></row>
 		<row><td>Comments</td><td/></row>
-		<row><td>CurrentMedia</td><td dt:dt="bin.base64" md5="de9f554a3bc05c12be9c31b998217995">
-UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
+		<row><td>CurrentMedia</td><td dt:dt="bin.base64" md5="6d78a46bf2c52ee27034bbcad20f7f95">
+QwBEAF8AUgBPAE0AAQBFAHgAcAByAGUAcwBzAA==
 			</td></row>
 		<row><td>DefaultProductConfiguration</td><td>Express</td></row>
 		<row><td>EnableSwidtag</td><td>1</td></row>

@@ -174,54 +174,59 @@ namespace ControlWorks.RecipeMaster
             this.Close();
         }
 
-        //private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    if (m_SaveOnClose)
-        //    {
-        //        string path = Directory.GetCurrentDirectory() + @"\" + settingsFile;
-        //        this.Save(path);
-        //    }
-        //}
-
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if (e.ClickedItem == mnuAdd)
+            try
             {
-                this.AddMachine();
-            }
-            if (e.ClickedItem == mnuDelete)
-            {
-                if (dataGridView1.SelectedRows[0] != null)
+                if (e.ClickedItem == mnuAdd)
                 {
-                    ContextMenuStrip context = sender as ContextMenuStrip;
-                    context.Close();
-                    this.DeleteMachine(dataGridView1.SelectedRows[0]);
+                    this.AddMachine();
+                }
+                if (e.ClickedItem == mnuDelete)
+                {
+                    if (dataGridView1.SelectedRows[0] != null)
+                    {
+                        ContextMenuStrip context = sender as ContextMenuStrip;
+                        context.Close();
+                        this.DeleteMachine(dataGridView1.SelectedRows[0]);
+                    }
+                }
+                if (e.ClickedItem == mnuEdit)
+                {
+                    if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                    {
+                        this.EditMachine(dataGridView1.SelectedRows[0]);
+                    }
                 }
             }
-            if (e.ClickedItem == mnuEdit)
+            catch(Exception ex)
             {
-                if (dataGridView1.SelectedRows[0] != null)
-                {
-                    this.EditMachine(dataGridView1.SelectedRows[0]);
-                }
+                Log.LogError("contextMenuStrip1_ItemClicked", ex);
             }
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            try
             {
-                this.Validate();
-            }
-            if (e.ColumnIndex == 5)
-            {
-                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                if (e.ColumnIndex == 2)
                 {
-                    DataGridView dg = sender as DataGridView;
-                    dg.Rows[e.RowIndex].Cells["colProductionFile"].Value = folderBrowserDialog1.SelectedPath;
-                    SetToolTip(dg.Rows[e.RowIndex]);
                     this.Validate();
                 }
+                if (e.ColumnIndex == 5)
+                {
+                    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        DataGridView dg = sender as DataGridView;
+                        dg.Rows[e.RowIndex].Cells["colProductionFile"].Value = folderBrowserDialog1.SelectedPath;
+                        SetToolTip(dg.Rows[e.RowIndex]);
+                        this.Validate();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Log.LogError("dataGridView1_CellContentDoubleClick", ex);
             }
         }
 
